@@ -16,8 +16,12 @@
 					<img src="./cards/back.svg" alt="" />
 				</div>
 				<div class="last_c_c">
-					<div class="last_played_c"></div>
-					<p>Last Played Card</p>
+					<button id="start_btn" onclick="start()">Start</button>
+					<button id="stop_btn" style="display: none;" onclick="stop()">Stop</button>
+					<div class="last_played_c">
+						<div class="last_played_card"></div>
+						<p>Last Played Card</p>
+					</div>
 				</div>
 			</div>
 			<div class="container_right">
@@ -39,5 +43,6 @@
 				</div>
 			</div>
 		</main>
+		<script src="./logic.js"></script>
 	</body>
 </html>

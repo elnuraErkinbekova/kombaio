@@ -27,7 +27,7 @@ img {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
 	gap: 50px;
 }
 
@@ -43,15 +43,29 @@ img {
 
 .last_c_c {
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-end;
+	gap: 140px;
 }
 
-.last_played_c {
+#start_btn, #stop_btn {
+	width: 110px;
+	height: 50px;
+	border-radius: 10px;
+	text-align: center;
+	font-size: medium;
+}
+
+.last_played_card {
     width: 144px;
 	height: 204px;
     border: solid black 1px;
+}
+
+.last_played_c {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .container_right {
