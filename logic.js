@@ -2,6 +2,8 @@
 const suits = ["H", "D", "C", "S"];
 const ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K"];
 let started = false;
+let true_last_card = null;
+let made_move = false;
 
 let deck = [];
 
@@ -59,6 +61,10 @@ function start() {
 	showTwoCards();
 
 	started = true;
+	console.log(true_last_card);
+	setTimeout(() => {
+		playGame();
+	}, 5000);
 }
 
 // function openModal() {
@@ -74,6 +80,11 @@ const c1 = document.getElementById("c1");
 const c2 = document.getElementById("c2");
 const c3 = document.getElementById("c3");
 const c4 = document.getElementById("c4");
+
+const ci1 = document.getElementById("ci1");
+const ci2 = document.getElementById("ci2");
+const ci3 = document.getElementById("ci3");
+const ci4 = document.getElementById("ci4");
 
 const p1 = document.getElementById("p1");
 const p2 = document.getElementById("p2");
@@ -151,16 +162,11 @@ function startCountdown(seconds) {
 	}, 1000);
 }
 
-function showDeckCard() {
-	if (started) {
-	}
-}
+const last_card = document.createElement("img");
 
 function placeCard(card_index) {
-	// write if for if it is not from deck but other player
+	// write if statement for if it is not from deck but other player
 	let the_card = shuffledDeck[card_index];
-
-	let last_card = document.createElement("img");
 
 	if (the_card.type === "card") {
 		last_card.src = `./cards/${the_card.rank}${the_card.suit}.svg`;
@@ -169,6 +175,40 @@ function placeCard(card_index) {
 	}
 
 	last_c.prepend(last_card);
-	shuffledDeck.pop();
-	console.log(shuffledDeck);
+	true_last_card = shuffledDeck.pop();
+}
+
+console.log(shuffledDeck);
+console.log(true_last_card);
+
+function playGame() {
+	if (started) {
+		if (c_card3.rank === true_last_card.rank && c_card3.type != "Joker") {
+			putCard(c_card3);
+			deleteCard(c3, ci3);
+		} else if (c_card4.rank === true_last_card.rank && c_card4.type != "Joker") {
+			putCard(c_card4);
+			deleteCard(c4, ci4);
+		}
+	}
+}
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+async function putCard(card) {
+	await sleep(3000);
+
+	if (!made_move) {
+		true_last_card = { ...card };
+		last_card.src = `./cards/${true_last_card.rank}${true_last_card.suit}.svg`;
+	}
+}
+
+async function deleteCard(card, invisible) {
+	await sleep(3000);
+
+	if (!made_move) {
+		card.style.display = "none";
+		invisible.style.display = "block";
+	}
 }
