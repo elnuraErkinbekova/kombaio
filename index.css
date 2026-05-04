@@ -1,0 +1,105 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #75a1bf;
+}
+
+main {
+	width: 1472px;
+	height: 825px;
+	margin: 20px;
+	background-color: #75a1bf;
+	display: flex;
+	justify-content: center;
+	gap: 80px;
+}
+
+img {
+	width: 144px;
+	height: 204px;
+}
+
+.container_left {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 50px;
+}
+
+.player_opp {
+	background-color: #030;
+	display: grid;
+	padding: 24px 173.5px 24px 173.5px;
+	grid-template-rows: 1fr 1fr;
+	grid-auto-flow: column;
+	grid-auto-columns: 1fr;
+	gap: 18px 27px;
+}
+
+.last_c_c {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.last_played_c {
+    width: 144px;
+	height: 204px;
+    border: solid black 1px;
+}
+
+.container_right {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 50px;
+}
+
+.player_me {
+	background-color: #030;
+	display: grid;
+	padding: 24px 173.5px 24px 173.5px;
+	grid-template-rows: 1fr 1fr;
+	grid-auto-flow: column;
+	grid-auto-columns: 1fr;
+	gap: 18px 27px;
+}
+
+.stack {
+	position: relative;
+	width: 150px;
+	height: 220px;
+}
+
+.deck_card {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+
+.deck_card:nth-child(1) {
+	transform: translate(0px, 0px) rotate(0deg);
+}
+
+.deck_card:nth-child(2) {
+	transform: translate(5px, 5px) rotate(2deg);
+}
+
+.deck_card:nth-child(3) {
+	transform: translate(10px, 10px) rotate(-2deg);
+}
+
+.deck_c {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
