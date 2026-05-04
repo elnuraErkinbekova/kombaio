@@ -57,13 +57,13 @@ img {
 	font-size: medium;
 }
 
-.last_played_card {
+#last_card {
 	width: 144px;
 	height: 204px;
 	border: solid black 1px;
 }
 
-.last_played_c {
+#last_c {
 	display: flex;
 	flex-direction: column;
 	align-items: center;

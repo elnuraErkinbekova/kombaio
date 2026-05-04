@@ -1,6 +1,7 @@
 // make deck
 const suits = ["H", "D", "C", "S"];
 const ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K"];
+let started = false;
 
 let deck = [];
 
@@ -45,12 +46,19 @@ console.log(shuffledDeck);
 // start and stop buttons
 const start_btn = document.getElementById("start_btn");
 const stop_btn = document.getElementById("stop_btn");
+const last_card_c = document.getElementById("last_card");
+const last_c = document.getElementById("last_c");
 
 function start() {
 	start_btn.style.display = "none";
 	stop_btn.style.display = "inline-block";
 
+	last_card_c.style.display = "none";
+	placeCard(shuffledDeck.length - 1);
+
 	showTwoCards();
+
+	started = true;
 }
 
 // function openModal() {
@@ -141,4 +149,26 @@ function startCountdown(seconds) {
 			document.getElementById("countdown_modal").classList.add("hidden");
 		}
 	}, 1000);
+}
+
+function showDeckCard() {
+	if (started) {
+	}
+}
+
+function placeCard(card_index) {
+	// write if for if it is not from deck but other player
+	let the_card = shuffledDeck[card_index];
+
+	let last_card = document.createElement("img");
+
+	if (the_card.type === "card") {
+		last_card.src = `./cards/${the_card.rank}${the_card.suit}.svg`;
+	} else {
+		last_card.src = "./cards/Joker.svg";
+	}
+
+	last_c.prepend(last_card);
+	shuffledDeck.pop();
+	console.log(shuffledDeck);
 }
